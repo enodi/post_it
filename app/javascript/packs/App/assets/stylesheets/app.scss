@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #fff;
+}
+
+@import "header";
+@import "main_section";
+@import "header";
+@import "about_section";
+@import "footer";

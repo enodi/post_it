@@ -1,11 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import LandingPage from './components/LandingPage';
+import Home from './components/Home';
 
 const Routes = () => (
   <Router>
     <div>
-      <Route exact path='/' component={LandingPage} />
+      <Route exact path='/' component={Home} />
     </div>
   </Router>
 )
