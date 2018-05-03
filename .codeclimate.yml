@@ -1,0 +1,8 @@
+plugins:
+  rubocop:
+    enabled: true
+    exclude_paths:
+    - "vendor/"
+
+exclude_paths:
+- "public/assets/"

@@ -1,0 +1,41 @@
+@import "base";
+
+.header {
+  width: 100%;
+  height: 4rem;
+  background: $white;
+  border: 1px solid #ccc;
+  display: grid;
+  grid-template-columns: 1fr 0.2fr;
+  
+  h2 {
+    color: $black;
+    font-size: 2em;
+    color: $font-color;
+    padding: 0.5rem 2rem;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 1.2rem 0;
+
+    li {
+      display: inline;
+
+      a {
+        text-decoration: none;
+        font-size: 1.1em;
+        color: $font-color;
+        padding: 0 0.8rem;
+      }
+    }
+  }
+}
+
+.background {
+  background: #AE63E4;
+
+  img {
+    width: 100%;
+  }
+}
