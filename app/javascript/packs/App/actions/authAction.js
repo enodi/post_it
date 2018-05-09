@@ -25,3 +25,25 @@ export function signupAction(userDetails) {
       })
   };
 }
+
+export function signinSuccess(userInfo) {
+  return {
+    type: types.SIGNIN_SUCCESSFUL,
+    userInfo
+  };
+}
+
+export function signinAction(userDetails) {
+  return (dispatch) => {
+    return axios.post("/api/v1/user/signin", userDetails)
+      .then((response) => {
+        const token = response.data.auth_token;
+        localStorage.setItem('token', token);
+        dispatch(signinSuccess(jwtDecode(token)));
+        toastr.success(response.data.message);
+      })
+      .catch((error) => {
+        toastr.error(error.response.data.message);
+      })
+  };
+}

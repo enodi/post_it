@@ -1,18 +1,16 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
-import { signupAction } from "../../actions/authAction";
-import Signup from "./Signup";
+import Signin from "./Signin";
+import { signinAction } from "../../actions/authAction";
 
-class SignupContainer extends React.Component {
+class SigninContainer extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      fullname: "",
       username: "",
-      email: "",
-      password: "",
+      password: ""
     }
   }
 
@@ -24,38 +22,19 @@ class SignupContainer extends React.Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.signupAction(this.state);
+    this.props.signinAction(this.state);
     event.target.reset();
   }
 
-  handleOnBlur = (event) => {
-    const { email } = this.state;
-    const re = /\S+@\S+\.\S+/;
-    const emailAddress = re.test(email);
+  handleOnBlur = event => {
     const name = event.target.name;
     const value = event.target.value;
     switch (name) {
-      case "fullname":
+      case "username":
         if (!value) {
           this.setState({
-            fullnameError:"This field cannot be blank",
-            fullnameClassName: "invalid"
-          });
-        }
-        break;
-      case "username":
-        if (!value || value.length <= 4) {
-          this.setState({
-            usernameError:"Username cannot be less than 4 characters",
+            usernameError:"This field cannot be blank",
             usernameClassName: "invalid"
-          });
-        }
-        break;
-      case "email":
-        if (!email || !emailAddress) {
-          this.setState({
-            emailError:"Invalid email",
-            emailClassName: "invalid"
           });
         }
         break;
@@ -75,18 +54,6 @@ class SignupContainer extends React.Component {
     const name = event.target.name;
     const value = event.target.value;
     switch (name) {
-      case "fullname":
-        this.setState({
-          fullnameError: "",
-          fullnameClassName: ""
-        });
-        break;
-      case "email":
-        this.setState({
-          emailError: "",
-          emailClassName: ""
-        });
-        break;
       case "username":
         this.setState({
           usernameError: "",
@@ -103,19 +70,15 @@ class SignupContainer extends React.Component {
     }
   }
 
-  render() {
+  render () {
     return(
-      <Signup
+      <Signin
         onChange={this.handleOnChange}
-        onSubmit={this.handleOnSubmit}
         onBlur={this.handleOnBlur}
         onFocus={this.handleOnFocus}
-        fullnameError={this.state.fullnameError}
-        fullnameClassName={this.state.fullnameClassName}
+        onSubmit={this.handleOnSubmit}
         usernameError={this.state.usernameError}
         usernameClassName={this.state.usernameClassName}
-        emailError={this.state.emailError}
-        emailClassName={this.state.emailClassName}
         passwordError={this.state.passwordError}
         passwordClassName={this.state.passwordClassName}
       />
@@ -123,4 +86,4 @@ class SignupContainer extends React.Component {
   }
 }
 
-export default connect(null, { signupAction })(SignupContainer);
+export default connect(null, { signinAction })(SigninContainer);
