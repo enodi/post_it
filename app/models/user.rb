@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :groups
+  has_many :group_members
 
   validates_presence_of :fullname, :username, :email, :password_digest
   validates :username,

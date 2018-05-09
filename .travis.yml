@@ -1,8 +1,8 @@
-addons:
-  postgresql: 9.6.5
+services:
+  - postgresql
 before_script:
+  - psql -c 'create database post_it_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database travis_ci_test;' -U postgres
 dist: trusty
 language: ruby
 rvm:
