@@ -47,6 +47,10 @@ group :development, :test do
   gem 'pry', '~> 0.11.3'
   gem 'rubocop', '~> 0.50.0', require: false
   gem 'dotenv-rails'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker', '~> 1.8', '>= 1.8.7'
+  gem "shoulda-matchers", "~> 3.1"
 end
 
 group :development do
