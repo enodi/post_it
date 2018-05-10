@@ -1,0 +1,74 @@
+@import "base";
+
+.sidebar {
+  background: #501e5e;
+  width: 250px;
+  height: 100vh;
+
+  .profile {
+    position: relative;
+    left: 1rem;
+    top: 2rem;
+
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border: 1px solid $white;
+      display: inline-block;
+      background: $whitish-grey;
+    }
+
+    span {
+      font-size: 0.9em;
+    }
+  }
+
+  span#line {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $white;
+    margin: 5em 0 1em 0;
+    padding: 0;
+  }
+
+  .navigation {
+    li {
+      padding: 1em;
+
+      a {
+        color: $white;
+        text-decoration: none;
+        
+        span {
+          padding-right: 1em;
+          img {
+            height: 20px;
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .logout {
+    li {
+      padding: 1em;
+
+      a {
+        color: $white;
+        text-decoration: none;
+        
+        span {
+          padding-right: 1em;
+
+          img {
+            height: 20px;
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+}

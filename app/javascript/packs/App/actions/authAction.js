@@ -2,7 +2,8 @@ import jwtDecode from "jwt-decode";
 import axios from "axios";
 import toastr from "toastr";
 
-import * as types from './actionTypes';
+import history from '../history';
+import * as types from "./actionTypes";
 
 export function signupSuccess(userInfo) {
   return {
@@ -19,6 +20,7 @@ export function signupAction(userDetails) {
         localStorage.setItem('token', token);
         dispatch(signupSuccess(jwtDecode(token)));
         toastr.success(response.data.message);
+        history.push("/dashboard");
       })
       .catch((error) => {
         toastr.error(error.response.data.message);
@@ -41,6 +43,7 @@ export function signinAction(userDetails) {
         localStorage.setItem('token', token);
         dispatch(signinSuccess(jwtDecode(token)));
         toastr.success(response.data.message);
+        history.push("/dashboard");
       })
       .catch((error) => {
         toastr.error(error.response.data.message);
