@@ -14,9 +14,7 @@ module ExceptionHandler
         error_message.size
       )
 
-      if display_message.include?("Username has already been taken")
-        json_response({ message: display_message }, :conflict)
-      elsif display_message.include?("Email has already been taken")
+      if display_message.include?("has already been taken")
         json_response({ message: display_message }, :conflict)
       else
         json_response({ message: error.message }, :unprocessable_entity)

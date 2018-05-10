@@ -6,4 +6,10 @@ module Validation
       json_response({ message: "Password is required" }, :bad_request)
     end
   end
+
+  def validate_group_params(name)
+    if name.empty?
+      json_response({ message: "Group name is required" }, :bad_request)
+    end
+  end
 end

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   include Validation
 
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token,
+                     :authorize_request, only: %i{create authenticate index show}
 
   def index; end
 
@@ -9,7 +10,13 @@ class UsersController < ApplicationController
 
   def create
     user = User.create!(user_params)
-    auth_token = JsonWebToken.encode(user_id: user.id)
+    auth_token = JsonWebToken.encode(
+      {
+        user_id: user.id,
+        username: user.username,
+        email: user.email
+      }
+    )
     response = { message: "User created successfully", auth_token: auth_token }
     json_response(response, :created)
   end
@@ -20,7 +27,13 @@ class UsersController < ApplicationController
     unless validate_signin_params(username, password)
       user = User.find_by(username: username)
       if user && user.authenticate(password)
-        auth_token = JsonWebToken.encode(user_id: user.id)
+        auth_token = JsonWebToken.encode(
+          {
+            user_id: user.id,
+            username: user.username,
+            email: user.email
+          }
+        )
         return json_response(
           message: "Login successful",
           auth_token: auth_token
