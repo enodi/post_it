@@ -2,7 +2,8 @@ import jwtDecode from "jwt-decode";
 import axios from "axios";
 import toastr from "toastr";
 
-import history from '../history';
+import history from "../history";
+import setAuthorizationToken from "../utils/setAuthorizationToken";
 import * as types from "./actionTypes";
 
 export function signupSuccess(userInfo) {
@@ -18,6 +19,7 @@ export function signupAction(userDetails) {
       .then((response) => {
         const token = response.data.auth_token;
         localStorage.setItem('token', token);
+        setAuthorizationToken(token);
         dispatch(signupSuccess(jwtDecode(token)));
         toastr.success(response.data.message);
         history.push("/dashboard");
@@ -41,6 +43,7 @@ export function signinAction(userDetails) {
       .then((response) => {
         const token = response.data.auth_token;
         localStorage.setItem('token', token);
+        setAuthorizationToken(token);
         dispatch(signinSuccess(jwtDecode(token)));
         toastr.success(response.data.message);
         history.push("/dashboard");

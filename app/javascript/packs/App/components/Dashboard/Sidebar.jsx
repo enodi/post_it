@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import profileImage from "../../assets/images/profile.svg";
 import homeIcon from "../../assets/images/home-page.svg";
@@ -32,9 +33,9 @@ const Sidebar = () => (
           </a>
         </li>
         <li>
-          <a href="!#">
+          <NavLink to="/group/new-group">
             <span><img src={createGroupIcon} alt="create group"/></span>Create Group
-          </a>
+          </NavLink>
         </li>
         <li>
           <a href="!#">

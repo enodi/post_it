@@ -1,9 +1,17 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import authReducer from './authReducer';
+import authReducer from "./authReducer";
+import * as type from "../actions/actionTypes";
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
   authReducer,
 });
+
+const rootReducer = (state, action) => {
+  if (action.type === "SIGN_OUT_SUCCESSFUL") {
+    state = undefined;
+  }
+  return appReducer(state, action);
+};
 
 export default rootReducer;

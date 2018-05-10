@@ -37,6 +37,10 @@
     li {
       padding: 1em;
 
+      &:hover {
+        background-color: #ccc;
+      }
+
       a {
         color: $white;
         text-decoration: none;
@@ -55,6 +59,10 @@
   .logout {
     li {
       padding: 1em;
+
+      &:hover {
+        background-color: #ccc;
+      }
 
       a {
         color: $white;
