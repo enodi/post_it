@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post "api/v1/user/signup", to: "users#create"
   post "api/v1/user/signin", to: "users#authenticate"
   post "api/v1/group", to: "groups#create"
+  get "api/v1/groups", to: "groups#get_all_groups"
 
   get "not_found" => "no_access#index", as: "not_found"
   match "/(*url)", to: "no_access#index", via: :all

@@ -28,6 +28,23 @@ class GroupsController < ApplicationController
     end
   end
 
+  def get_all_groups
+    group_all = []
+    @groups = Group.all
+    @groups.each do |group| 
+      group_details = {
+        name: group.name,
+        description: group.description
+      }
+      group_all << group_details
+    end
+    return json_response(
+      {
+        groups: group_all
+      }, :ok
+    )
+  end
+
   private
 
   def user_details(user_id, group_id)

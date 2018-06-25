@@ -8,7 +8,10 @@ class Dashboard extends React.Component {
     return(
       <div>
         <Header />
-        <Sidebar />
+        <div className="container">
+          <Sidebar />
+          {this.props.children}
+        </div>
       </div>
     )
   }
