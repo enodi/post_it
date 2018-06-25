@@ -74,22 +74,16 @@ class NewGroupContainer extends React.Component {
 
   render() {
     return(
-      <div>
-        <Header />
-        <div className="container">
-          <Sidebar />
-          <NewGroup
-            onChange={this.handleOnChange}
-            onBlur={this.handleOnBlur}
-            onFocus={this.handleOnFocus}
-            onSubmit={this.handleOnSubmit}
-            groupNameError={this.state.groupNameError}
-            groupClassName={this.state.groupClassName}
-            descriptionError={this.state.descriptionError}
-            descriptionClassName={this.state.descriptionClassName}
-          />
-        </div>
-      </div>
+      <NewGroup
+        onChange={this.handleOnChange}
+        onBlur={this.handleOnBlur}
+        onFocus={this.handleOnFocus}
+        onSubmit={this.handleOnSubmit}
+        groupNameError={this.state.groupNameError}
+        groupClassName={this.state.groupClassName}
+        descriptionError={this.state.descriptionError}
+        descriptionClassName={this.state.descriptionClassName}
+      />
     )
   } 
 }

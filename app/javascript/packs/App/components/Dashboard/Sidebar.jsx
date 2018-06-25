@@ -38,9 +38,9 @@ const Sidebar = () => (
           </NavLink>
         </li>
         <li>
-          <a href="!#">
+          <NavLink to="/group/browse-group">
             <span><img src={browseGroupIcon} alt="browse group"/></span>Browse Groups
-          </a>
+          </NavLink>
         </li>
         <li>
           <a href="!#">
