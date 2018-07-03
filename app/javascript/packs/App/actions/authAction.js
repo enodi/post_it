@@ -53,3 +53,17 @@ export function signinAction(userDetails) {
       })
   };
 }
+
+export function signoutSuccess() {
+  return {
+    type: types.SIGNOUT_SUCCESSFUL
+  };
+}
+
+export function signoutAction() {
+  return (dispatch) => {
+    localStorage.clear();
+    dispatch(signoutSuccess());
+    history.push("/signin");
+  }
+}
