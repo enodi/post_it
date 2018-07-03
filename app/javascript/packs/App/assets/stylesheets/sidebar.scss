@@ -60,23 +60,25 @@
   .logout {
     li {
       padding: 1em;
+      color: $white;
+      cursor: pointer;
 
       &:hover {
         background-color: #ccc;
       }
 
+      span {
+        padding-right: 1em;
+
+        img {
+          height: 20px;
+          width: 20px;
+        }
+      }
+
       a {
         color: $white;
         text-decoration: none;
-        
-        span {
-          padding-right: 1em;
-
-          img {
-            height: 20px;
-            width: 20px;
-          }
-        }
       }
     }
   }
